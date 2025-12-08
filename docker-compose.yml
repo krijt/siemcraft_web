@@ -7,7 +7,7 @@ services:
       context: .
     environment:
       - DOMAIN=siemcraft.verkeerd-verbonden.nl
-      - LETSENCRYPT_EMAIL=you@example.com
+      - LETSENCRYPT_EMAIL=kvanderrijt@gmail.com
       # Set to 1 to use Let's Encrypt staging when testing issuance
       - LETSENCRYPT_STAGING=0
     ports:
