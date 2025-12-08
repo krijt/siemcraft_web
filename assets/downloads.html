@@ -18,7 +18,7 @@
     async function loadListing() {
       const container = document.getElementById('content');
       try {
-        const res = await fetch('/download/listing.json', { cache: 'no-store' });
+        const res = await fetch('/download/listing/', { cache: 'no-store' });
         if (!res.ok) throw new Error('Failed to load listing');
         const data = await res.json();
         const files = (data || []).filter(item => !item.type || item.type === 'file');
