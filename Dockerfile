@@ -1,4 +1,4 @@
-FROM nginx:1.27-alpine
+FROM nginx:1.26-alpine
 
 RUN apk add --no-cache certbot openssl nginx-mod-http-fancyindex \
   && mkdir -p /var/www/certbot /etc/nginx/ssl \
