@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloads | SiemCraft</title>
+  <link rel="stylesheet" href="/assets/downloads.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="block"><div class="face"></div></div>
+      <h1>SiemCraft Downloads</h1>
+    </header>
+    <div id="content"></div>
+  </div>
+  <script>
+    async function loadListing() {
+      const container = document.getElementById('content');
+      try {
+        const res = await fetch('/download/listing.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Failed to load listing');
+        const data = await res.json();
+        const files = (data || []).filter(item => !item.type || item.type === 'file');
+
+        if (!files.length) {
+          container.innerHTML = '<div class="empty">No files yet. Drop items into ./downloads to publish.</div>';
+          return;
+        }
+
+        const rows = files.map(f => {
+          const name = f.name || f.href || '';
+          const size = f.size || '';
+          const mtime = f.mtime || '';
+          return `<tr>
+            <td><a href="/download/${encodeURIComponent(name)}" download>${name}</a></td>
+            <td class="meta">${size}</td>
+            <td class="meta">${mtime}</td>
+          </tr>`;
+        }).join('');
+
+        container.innerHTML = `<table>
+          <thead><tr><th>Name</th><th>Size</th><th>Modified</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>`;
+      } catch (e) {
+        container.innerHTML = '<div class="empty">Could not load download listing.</div>';
+      }
+    }
+    loadListing();
+  </script>
+</body>
+</html>

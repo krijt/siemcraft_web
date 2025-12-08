@@ -1,8 +1,7 @@
-FROM nginx:1.26-alpine
+FROM nginx:1.27-alpine
 
-RUN apk add --no-cache certbot openssl nginx-mod-http-fancyindex \
-  && mkdir -p /var/www/certbot /etc/nginx/ssl \
-  && sed -i '1iload_module /usr/lib/nginx/modules/ngx_http_fancyindex_module.so;' /etc/nginx/nginx.conf
+RUN apk add --no-cache certbot openssl \
+  && mkdir -p /var/www/certbot /etc/nginx/ssl
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh

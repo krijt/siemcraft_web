@@ -7,7 +7,7 @@ Nginx container with automatic Let’s Encrypt for `siemcraft.verkeerd-verbonden
 - Certbot issuance/renewal with self-signed fallback on first boot.
 - Swarm-ready `docker-compose.yml` exposing 80 and 5443.
 - Simple landing page in `index.html` baked into the image (replace as needed).
-- Download drop at `/download` mapped from the host `./downloads` directory, auto-listed with styled fancyindex + custom CSS.
+- Download drop at `/download` mapped from the host `./downloads` directory, auto-listed via JSON autoindex and a styled front-end.
 
 ## Requirements
 - Docker Engine with Swarm mode enabled.

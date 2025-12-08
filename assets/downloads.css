@@ -9,9 +9,7 @@
   --shadow: rgba(0, 0, 0, 0.35);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -96,6 +94,12 @@ h1 {
   font-family: "Press Start 2P", "Trebuchet MS", sans-serif;
   letter-spacing: 0.5px;
   text-shadow: 0 3px 0 #0b1f12, 0 10px 24px var(--shadow);
+}
+
+.empty {
+  padding: 28px;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 table {
