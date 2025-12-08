@@ -9,6 +9,6 @@ RUN chmod +x /docker-entrypoint.sh
 
 ENV DOMAIN=siemcraft.verkeerd-verbonden.nl
 
-EXPOSE 80 443
+EXPOSE 80 5443
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
