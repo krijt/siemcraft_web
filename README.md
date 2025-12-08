@@ -7,6 +7,7 @@ Nginx container with automatic Let’s Encrypt for `siemcraft.verkeerd-verbonden
 - Certbot issuance/renewal with self-signed fallback on first boot.
 - Swarm-ready `docker-compose.yml` exposing 80 and 5443.
 - Simple landing page in `index.html` baked into the image (replace as needed).
+- Download drop at `/download` mapped from the host `./downloads` directory.
 
 ## Requirements
 - Docker Engine with Swarm mode enabled.
@@ -21,6 +22,7 @@ Nginx container with automatic Let’s Encrypt for `siemcraft.verkeerd-verbonden
 Volumes (defined in compose):
 - `certs`: persists `/etc/letsencrypt` (certs/keys).
 - `webroot`: persists ACME challenge files.
+- Bind: `./downloads` → `/usr/share/nginx/html/download` (read-only in container).
 
 ## Build and deploy
 ```bash
@@ -29,3 +31,5 @@ docker stack deploy -c docker-compose.yml siemcraft
 ```
 
 The stack publishes HTTP on 80 and HTTPS on 5443. Update `LETSENCRYPT_EMAIL` in `docker-compose.yml` before deploying. On first start you’ll see a self-signed cert until Let’s Encrypt issuance succeeds, after which certs are swapped and nginx reloads. Renewals run nightly via cron.
+
+Place any files you want downloadable in `./downloads`; they’ll be reachable at `/download/filename` and listed at `/download/`.
