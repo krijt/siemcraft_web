@@ -6,7 +6,7 @@ Nginx container with automatic Let’s Encrypt for `siemcraft.verkeerd-verbonden
 - Nginx reverse with HTTP→HTTPS redirect and ACME HTTP-01 challenge handling.
 - Certbot issuance/renewal with self-signed fallback on first boot.
 - Swarm-ready `docker-compose.yml` exposing 80 and 5443.
-- Simple landing page in `index.html` you can replace with your own content.
+- Simple landing page in `index.html` baked into the image (replace as needed).
 
 ## Requirements
 - Docker Engine with Swarm mode enabled.
@@ -21,7 +21,6 @@ Nginx container with automatic Let’s Encrypt for `siemcraft.verkeerd-verbonden
 Volumes (defined in compose):
 - `certs`: persists `/etc/letsencrypt` (certs/keys).
 - `webroot`: persists ACME challenge files.
-- `site`: persists `/usr/share/nginx/html` (your site content).
 
 ## Build and deploy
 ```bash

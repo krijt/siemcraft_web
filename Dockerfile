@@ -5,6 +5,7 @@ RUN apk add --no-cache certbot openssl \
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY index.html /usr/share/nginx/html/index.html
 RUN chmod +x /docker-entrypoint.sh
 
 ENV DOMAIN=siemcraft.verkeerd-verbonden.nl
