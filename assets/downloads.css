@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --bg: #0b1f12;
+  --panel: #12311c;
+  --accent: #5cc16d;
+  --text: #e8f7e9;
+  --muted: #b9d7c0;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #143220, #0b1f12 55%), radial-gradient(circle at 80% 70%, #0f2a17, #0b1f12 60%);
+  font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+  color: var(--text);
+  padding: 36px;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  background: var(--panel);
+  border-radius: 16px;
+  border: 3px solid #0a1a0f;
+  box-shadow: 0 20px 45px var(--shadow);
+  overflow: hidden;
+}
+
+header {
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 2px solid #0f2918;
+  background: linear-gradient(135deg, rgba(92, 193, 109, 0.08), transparent);
+}
+
+.block {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #66d37c 0%, #4fa764 45%, #2c5d39 100%);
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 3px #0f2f1c, 0 5px 0 #0b1f12, 0 10px 24px var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.block::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(0,0,0,0.25));
+  border-radius: 5px;
+}
+.face {
+  --px: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--px);
+  height: var(--px);
+  background: #0b1f12;
+  box-shadow:
+    calc(var(--px) * 1) calc(var(--px) * 1) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 1) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 1) 0 0 #0b1f12,
+    calc(var(--px) * 6) calc(var(--px) * 1) 0 0 #0b1f12,
+    calc(var(--px) * 1) calc(var(--px) * 2) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 2) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 2) 0 0 #0b1f12,
+    calc(var(--px) * 6) calc(var(--px) * 2) 0 0 #0b1f12,
+    calc(var(--px) * 3) calc(var(--px) * 3) 0 0 #0b1f12,
+    calc(var(--px) * 4) calc(var(--px) * 3) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 4) 0 0 #0b1f12,
+    calc(var(--px) * 3) calc(var(--px) * 4) 0 0 #0b1f12,
+    calc(var(--px) * 4) calc(var(--px) * 4) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 4) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 5) 0 0 #0b1f12,
+    calc(var(--px) * 3) calc(var(--px) * 5) 0 0 #0b1f12,
+    calc(var(--px) * 4) calc(var(--px) * 5) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 5) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 6) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 6) 0 0 #0b1f12,
+    calc(var(--px) * 2) calc(var(--px) * 7) 0 0 #0b1f12,
+    calc(var(--px) * 5) calc(var(--px) * 7) 0 0 #0b1f12;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0;
+  font-family: "Press Start 2P", "Trebuchet MS", sans-serif;
+  letter-spacing: 0.5px;
+  text-shadow: 0 3px 0 #0b1f12, 0 10px 24px var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 16px;
+}
+
+th {
+  background: rgba(92, 193, 109, 0.08);
+  border-bottom: 2px solid #0f2918;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 13px;
+}
