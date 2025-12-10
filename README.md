@@ -33,3 +33,5 @@ docker stack deploy -c docker-compose.yml siemcraft
 The stack publishes HTTP on 80 and HTTPS on 5443. Update `LETSENCRYPT_EMAIL` in `docker-compose.yml` before deploying. On first start you’ll see a self-signed cert until Let’s Encrypt issuance succeeds, after which certs are swapped and nginx reloads. Renewals run nightly via cron.
 
 Place any files you want downloadable in `./downloads`; they’ll be reachable at `/download/filename` and listed at `/download/`.
+
+codex Session:          019afe7a-3ddc-7b63-a600-7aa856ca03e9
